@@ -1,13 +1,8 @@
 # Integrate-Linux-to-Active-Directory-LDAP
 
 
-In CentOS
+Fix Some Issue in CentOS
 
-Edit sshd file to let root login via ssh session 
-```
-vim /etc/ssh/sshd_config
-```
-Change from 'PermitRootLogin yes' to 'PermitRootLogin yes'
 
 
 Check Connection name

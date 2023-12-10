@@ -31,6 +31,11 @@ To Allow root to access via ssh
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 ```
 
+Restart SSHD Services 
+```
+systemctl restart sshd
+```
+
 
 Edit the configuration file for the enp0s3 network interface
 ```

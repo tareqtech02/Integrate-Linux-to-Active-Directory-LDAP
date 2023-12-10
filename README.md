@@ -125,12 +125,21 @@ Edit the host file to include DNS mappings
 vim /etc/hosts
 
 ```
+Add Your domain IP and Hostname 
+```
+192.168.1.100  win_ser01 tareqtech.local win_ser01.tareqtech.local
+```
+
 
 Edit the resolv.conf file for DNS configuration
 ```
 vim /etc/resolv.conf
 ```
-
+Add This contents
+```
+search tareqtech.local
+nameserver 192.168.1.100
+```
 
 Join the system to the Active Directory domain
 ```

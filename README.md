@@ -3,6 +3,12 @@
 
 In CentOS
 
+Edit sshd file to let root login via ssh session 
+```
+vim /etc/ssh/sshd_config
+```
+Change from 'PermitRootLogin yes' to 'PermitRootLogin yes'
+
 
 Check Connection name
 ```
@@ -12,6 +18,12 @@ nmcli connection show
 Activate the network connection using NetworkManager command-line interface
 ```
 nmcli connection up enp0s3
+```
+
+Add User to login via SSH
+```
+useradd tareq
+passwd tareq
 ```
 
 

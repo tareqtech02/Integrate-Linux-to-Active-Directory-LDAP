@@ -143,7 +143,7 @@ nameserver 192.168.1.100
 
 Join the system to the Active Directory domain
 ```
-realm join --user=administrator tareq.local
+realm join --user=administrator tareqtech.local
 ```
 
 

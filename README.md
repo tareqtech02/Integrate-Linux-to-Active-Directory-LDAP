@@ -50,7 +50,9 @@ NAME="enp0s3"
 # Install LDAP on Centos
 
 Set the new hostname using hostnamectl
-hostnamectl set-hostname <NewName>
+```
+hostnamectl set-hostname CentOS9
+```
 
 Display repository list
 ```

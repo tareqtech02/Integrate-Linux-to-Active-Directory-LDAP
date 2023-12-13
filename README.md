@@ -156,13 +156,13 @@ Add these lines in system-auth and password-auth files
 vim /etc/pam.d/system-auth
 vim /etc/pam.d/password-auth
 ```
-Add 3 lines to the auth section 
+Add 3 lines to the `auth` section 
 ```
 auth        required                                     pam_faillock.so preauth silent audit deny=2 unlock_time=600
 auth        sufficient                                   pam_unix.so nullok try_first_pass
 auth        [default=die]                                pam_faillock.so authfail audit deny=2 unlock_time=600
 ```
-Add 1 line to the account section
+Add 1 line to the `account` section
 ```
 account     required                                     pam_faillock.so
 ```

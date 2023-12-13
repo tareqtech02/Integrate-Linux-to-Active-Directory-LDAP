@@ -81,7 +81,7 @@ vim /etc/hosts
 ```
 Add Your domain IP and Hostname 
 ```
-192.168.1.100  win_ser01 tareqtech.local win_ser01.tareqtech.local
+192.168.1.100  dc tareqtech.local dc.tareqtech.local
 ```
 
 

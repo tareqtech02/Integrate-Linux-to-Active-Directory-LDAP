@@ -150,7 +150,7 @@ Edit sudoers file to allow wheel group members to run commands without a passwor
 visudo
 %sysadmin        ALL=(ALL)       NOPASSWD: ALL
 ```
-## faillock utility to enforce account lockouts for `Local` Users and `Domain` Users
+## `faillock` utility to enforce account lockouts for `Local` Users and `Domain` Users
 Add these lines in system-auth and password-auth files 
 ```
 vim /etc/pam.d/system-auth

@@ -21,21 +21,26 @@ useradd tareq
 passwd tareq
 ```
 
-To Allow root to access via ssh 
+To Allow root to access via ssh
 ```
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 ```
 
-Restart SSHD Services 
+
+
+Restart SSHD Services
 ```
 systemctl restart sshd
 ```
-
 
 Edit the configuration file for the enp0s3 network interface
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
 ```
+
+Change this Line 'ONBOOT=no' to 'ONBOOT=yes'
+
+
 Add This content
 ```
 DEVICE="enp0s3"
@@ -51,7 +56,7 @@ NAME="enp0s3"
 
 Set the new hostname using hostnamectl
 ```
-hostnamectl set-hostname CentOS9
+hostnamectl set-hostname CentOS8
 ```
 
 Display repository list
@@ -64,61 +69,22 @@ Update your system
 yum update -y
 ```
 
+If you have same errro in CentOS 8 Report Please run this commands 
+```
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+```
+
 Install the System Security Services Daemon (SSSD)
-```
-yum install sssd -y
-```
-
-
 Install realmd, a tool for configuring authentication and domain membership
-```
-yum install realmd -y
-```
-
 Install oddjob, a helper service for managing a user's home directory
-```
-yum install oddjob -y
-```
-
-
-Install oddjob-mkhomedir, a component for automatically creating home directories
-```
-yum install oddjob-mkhomedir -y
-```
-
 Install adcli, a command-line tool for Active Directory integration
-```
-yum install adcli -y
-```
-
-
 Install Samba common files
-```
-yum install samba-common -y
-```
-
-
-Install Samba common tools
-```
-yum install samba-common-tools -y
-```
-
-
-Install Kerberos client packages
-```
-yum install krb5-workstation -y
-```
-
 Install OpenLDAP client utilities
 ```
-yum install openldap-clients -y
+yum install -y sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python-utils.noarch
 ```
 
-
-Install SELinux utilities for Python
-```
-yum install policycoreutils-python-utils.noarch -y
-```
 
 Edit the host file to include DNS mappings
 ```
@@ -141,15 +107,36 @@ search tareqtech.local
 nameserver 192.168.1.100
 ```
 
+Create This file in this Path
+```
+vim /etc/NetworkManager/conf.d/dns-none.conf
+```
+Add This content inside the file 
+```
+[main]
+dns=none
+```
+
+You Can  discover the domain 
+```
+realm discover tareqtech.local
+```
+
+
 Join the system to the Active Directory domain
 ```
-realm join --user=administrator tareqtech.local
+realm join --user=tareq tareqtech.local
 ```
 
 
 Display information about the realm and domain
 ```
 realm list
+```
+
+Get some info of AD Users
+```
+getent passwd administrator@tareq.local
 ```
 
 
@@ -162,6 +149,6 @@ realm leave
 Edit sudoers file to allow wheel group members to run commands without a password
 ```
 visudo
-%wheel        ALL=(ALL)       NOPASSWD: ALL
+%sysadmin        ALL=(ALL)       NOPASSWD: ALL
 ```
 

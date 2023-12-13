@@ -27,7 +27,6 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 ```
 
 
-
 Restart SSHD Services
 ```
 systemctl restart sshd
@@ -39,17 +38,6 @@ vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
 ```
 
 Change this Line 'ONBOOT=no' to 'ONBOOT=yes'
-
-
-Add This content
-```
-DEVICE="enp0s3"
-ONBOOT=yes
-NETBOOT=yes
-BOOTPROTO=dhcp
-TYPE=Ethernet
-NAME="enp0s3"
-```
 
 
 # Install LDAP on Centos

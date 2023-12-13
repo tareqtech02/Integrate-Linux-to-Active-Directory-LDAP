@@ -124,7 +124,7 @@ realm list
 
 Get some info of AD Users
 ```
-getent passwd administrator@tareq.local
+getent passwd administrator@tareqtech.local
 ```
 
 

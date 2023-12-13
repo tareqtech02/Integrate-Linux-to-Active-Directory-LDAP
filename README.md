@@ -37,7 +37,7 @@ Edit the configuration file for the enp0s3 network interface
 vim /etc/sysconfig/network-scripts/ifcfg-enp0s3
 ```
 
-Change this Line 'ONBOOT=no' to 'ONBOOT=yes'
+Change this Line `ONBOOT=no` to `ONBOOT=yes`
 
 
 # Install LDAP on Centos
@@ -137,8 +137,8 @@ Remove Fully qualified domain name (FQDN)
 ```
 vim /etc/sssd/sssd.conf
 ```
-Edit 'fallback_homedir = /home/%u@%d' to 'fallback_homedir = /home/%u'
-Edit 'use_fully_qualified_names = True' to 'use_fully_qualified_names = False'
+Edit `fallback_homedir = /home/%u@%d` to `fallback_homedir = /home/%u`
+Edit `use_fully_qualified_names = True` to `use_fully_qualified_names = False`
 
 
 Edit sudoers file to allow wheel group members to run commands without a password

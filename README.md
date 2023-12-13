@@ -133,6 +133,13 @@ Leave the Active Directory domain
 realm leave
 ```
 
+Remove Fully qualified domain name (FQDN)
+```
+vim /etc/sssd/sssd.conf
+```
+Edit 'fallback_homedir = /home/%u@%d' to 'fallback_homedir = /home/%u'
+Edit 'use_fully_qualified_names = True' to 'use_fully_qualified_names = False'
+
 
 Edit sudoers file to allow wheel group members to run commands without a password
 ```

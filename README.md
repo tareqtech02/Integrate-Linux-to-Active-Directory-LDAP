@@ -168,5 +168,5 @@ account     required                                     pam_faillock.so
 ```
 
 Reset a user or all users 
-for all users run `faillock --reset`
-for one users run `faillock --reset  --user tareq`
+for all users run `faillock --reset`  
+for one users run `faillock --reset  --user tareq`  
